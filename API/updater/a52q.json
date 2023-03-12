@@ -5,14 +5,11 @@
     "datetime": 1678628607,
     "size": 2036223710,
     "url": "https://bananadroid.com/download#a52q",
-    "github_releases_url": "https://github.com/PixelOS-Releases/SparkOS-releases-public/releases/download/2023-03-11/Spark-13.5-Official-alioth-20230311-gapps.zip",
+    "github_releases_url": "https://sourceforge.net/projects/bananadroid/files/a52q/BananaDroid-Tanduk-a52q-OFFICIAL-20230312-GApps.zip/download",
     "filehash": "4fe21a6711db424f85d4811037ecf811",
     "id": "025ae6a3dba8588e87c0563539911f0f50983056b4466f182feb42f55bde5535",
-    "maintainers": [
-        {
-            "main_maintainer": true,
-            "github_username": "travarilo",
-            "name": "travarilo"
-        }
-    ]
+    "maintainers": "travarilo",
+    "donate_url": "https://PayPal.me/travarilo",
+    "website_url": "https://bananadroid.com/",
+    "news_url": "https://t.me/bananadroidchannel"
 }

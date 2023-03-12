@@ -1,11 +1,5 @@
 {
-    "maintainer": [
-        {
-            "display_name": "travarilo",
-            "telegram": "https://t.me/travarilo",
-            "github": "https://github.com/travarilo"
-        }
-    ],
+    "maintainer": "travarilo",
     "updater": true,
     "beta": false,
     "version": "thirteen",
