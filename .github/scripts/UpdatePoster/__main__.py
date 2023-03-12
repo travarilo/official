@@ -31,17 +31,17 @@ from telegram.ext import *
 BOT_API = os.environ.get("BOT_API")  # Telegram Bot API Token
 # GitHub PAT (for accessing private repos and APIs)
 TOKEN = os.environ.get("TOKEN")
-GITHUB_API_USER = "spkal01"  # GitHub username of owner of the above token
+GITHUB_API_USER = "travarilo"  # GitHub username of owner of the above token
 # ID of channel where it needs to post [Requires admin with enough permissions]
-CHAT_ID = "-1001520980299"
+CHAT_ID = "-1001175756377"
 # Direct link to banner
-banner = "https://raw.githubusercontent.com/Spark-Devices/official_devices/pyro/banners/latest1.jpg"
+banner = "https://raw.githubusercontent.com/travarilo/banners/main/march.png"
 json_dir = "./API/devices/"  # Directory where it should look for JSONs
 timeout = 1  # Time out before sending consecutive messages
 LOG_DIR = ".github/scripts/UpdatePoster/log.txt"
-WEBSITE_DOWNLOAD = "https://spark-os.live/download/"
+WEBSITE_DOWNLOAD = "https://bananadroid.com/download/"
 # Tags which needs to appear at end of the post
-FOOTER_TAGS = "#LightTheNight #SparkOS"
+FOOTER_TAGS = "#StayHealthy #BananaDroid"
 
 # UniqueID can be any parameter contained in the device.json file which is unique to one build which the\
 # maintainer must change every update/build.
@@ -112,7 +112,7 @@ def get_updated_device():
 
 # To make the post
 def post_maker(device_info, name):
-    message = "<b>SparkOS for " + device_info["device_display_name"] + " (" + \
+    message = "<b>BananaDroid for " + device_info["device_display_name"] + " (" + \
               device_info["device_display_codename"] + \
         ")\n\nVersion:</b> " + device_info["version"]
 
@@ -138,7 +138,7 @@ def post_maker(device_info, name):
         loop -= 1
 
     release_info = json.loads(requests.get(
-        "https://api.github.com/repos/PixelOS-Releases/SparkOS-releases/releases/tags/" +
+        "https://api.github.com/repos/travarilo/releases/releases/tags/" +
         device_info[UniqueID],
         auth=(GITHUB_API_USER, TOKEN)).content)  # information about the release, taken from Private Releases Repository
 
@@ -154,9 +154,9 @@ def post_maker(device_info, name):
         if asset["name"] == "boot.img" or asset["name"] == "recovery.img":
             recovery_file_size = float(asset["size"]) * 0.00000095367432
             RECOVERY_NAME = asset["name"]
-        elif asset["name"].__contains__("SparkOS.part"):
+        elif asset["name"].__contains__("BananaDroid.part"):
             gapps_rom_file_size = rom_file_size + float(asset["size"]) * 0.00000000093132
-        elif asset["name"].endswith("gapps.zip"):
+        elif asset["name"].endswith("GApps.zip"):
             ROM_NAME = asset["name"]
             gapps_rom_file_size = float(asset["size"]) * 0.00000000093132
         elif asset["name"].endswith(".zip"):
@@ -169,12 +169,12 @@ def post_maker(device_info, name):
         + ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov",
            "Dec"][int(upload_date[0:10].split("-")[-2]) - 1] + "-" + upload_date[0:10].split("-")[-3]
 
-    message = message + "\n\n<b>Download:</b> <a href=\"https://www.pling.com/p/1703061/" + "\">Pling</a>\n"
-    message = message + "<b>Changelog:</b> <a href=\"https://www.spark-os.live/download/" + device_info["device_display_codename"] + "\">Website</a>\n"
+    message = message + "\n\n<b>Download:</b> <a href=\"https://www.pling.com/u/bananadroid/"
+    message = message + "<b>Changelog:</b> <a href=\"https://www.bananadroid.com/download$" + device_info["device_display_codename"] + "\">Website</a>\n"
   
 
     # Download Sizes
-    message = message + "<b>Size:</b> " + str(gapps_rom_file_size)[0:4] + "G" + "/" + str(vanilla_rom_file_size)[0:4] + "G (Gapps/Vanilla)\n"
+    message = message + "<b>Size:</b> " + str(gapps_rom_file_size)[0:4] + "G" + "/" + str(vanilla_rom_file_size)[0:4] + "G (GApps/Vanilla)\n"
 
     if device_info["xda"] != None and device_info["xda"] != "":
         message = message + "<b><a href=\"" + \

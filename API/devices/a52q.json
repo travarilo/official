@@ -1,0 +1,20 @@
+{
+    "maintainer": [
+        {
+            "display_name": "travarilo",
+            "telegram": "https://t.me/travarilo",
+            "github": "https://github.com/travarilo"
+        }
+    ],
+    "updater": true,
+    "beta": false,
+    "version": "thirteen",
+    "release": "monthly",
+    "device_display_name": "A52 4G",
+    "device_display_codename": "a52q",
+    "public_download": "https://sourceforge.net/projects/bananadroid/files/a52q/",
+    "last_updated": "12 March 2023",
+    "active": true,
+    "xda": null,
+    "customRecoveryRequired": true
+}
